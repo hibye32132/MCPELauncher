@@ -80,7 +80,7 @@ public class ScriptManager {
 
 	private static boolean scriptingEnabled = true;
 
-	private static boolean scriptingInitialized = false;
+	private static boolean scriptingInitialized = true;
 
 	public static String screenshotFileName = "";
 
@@ -89,7 +89,7 @@ public class ScriptManager {
 
 	private static ModernWrapFactory modernWrapFactory = new ModernWrapFactory();
 
-	private static boolean requestReloadAllScripts = false;
+	private static boolean requestReloadAllScripts = true;
 
 	private static List<Runnable> runOnMainThreadList = new ArrayList<Runnable>();
 	
@@ -163,7 +163,7 @@ public class ScriptManager {
 			if (!scriptingInitialized)
 				return;
 			if (!scriptingEnabled)
-				throw new RuntimeException("Not available in multiplayer");
+				return;
 			loadScriptFromInstance(ScriptTranslationCache.get(androidContext, file), file.getName());
 			return;
 		}
